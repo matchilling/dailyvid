@@ -12,7 +12,7 @@ chdir(dirname(__DIR__));
 /**
  * Display all errors when APPLICATION_ENV is development.
  */
-if ('development' === $_SERVER['APPLICATION_ENV']) {
+if (isset($_SERVER['APPLICATION_ENV']) && 'development' === $_SERVER['APPLICATION_ENV']) {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 }
