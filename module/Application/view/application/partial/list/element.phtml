@@ -1,0 +1,14 @@
+<div class="media video">
+	<div class="media-left">
+		<a href="<?php echo $url = $this->url('video', ['id' => $video->getSourceId() ]); ?>">
+			<img height="120" width="160" class="media-object" src="<?php echo $video->getPosterOrDefault(
+			    'medium',
+			    'https://placeholdit.imgix.net/~text?txtsize=16&txt=120%C3%97160&w=160&h=120'
+		    ); ?>" alt="thumbnail" />
+		</a>
+	</div>
+	<div class="media-body">
+		<a href="<?php echo $url; ?>"><h4 class="media-heading"><?php echo $video->getTitle(); ?></h4></a>
+		<p><?php echo strip_tags($video->getDescription()); ?></p>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+<div class="<?php echo $class; ?>">
+	<?php if ($videos instanceof \Application\Entity\VideoCollection && is_array($videos->getItems())) {
+        foreach ($videos->getItems() as $video) {
+            echo $this->partial('application/partial/list/element.phtml', [ 'video' => $video ]);
+        }
+    } ?>
+</div>

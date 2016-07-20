@@ -1,0 +1,49 @@
+<div class="jumbotron">
+	<h1>
+		Search <span class="zf-green"><?php echo $providerName; ?></span>
+	</h1>
+
+	<form action="/search" method="GET" role="form" class="form-inline">
+		<div class="form-group">
+			<input type="text" placeholder="Search ..." class="form-control" id="search" name="q" value="<?php echo $this->escapeHtml($query); ?>" />
+			<button class="btn btn-success" type="submit" class="btn btn-default">Search</button>
+		</div>
+	</form>
+</div>
+
+<?php if ($videos->getItems()) { ?>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Results</h3>
+			</div>
+			<div class="panel-body">
+				<?php echo $this->partial('application/partial/list/video-list.phtml', [
+				    'class' => 'list-group',
+				    'videos' => $videos
+				]); ?>
+			</div>
+		</div>
+		<nav>
+			<ul class="pager">
+				<?php if (1 === $page) { ?>
+					<li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
+				<?php } else { ?>
+					<li class="previous"><a href="<?php echo sprintf('%s?page=%d&q=%s', $this->url($this->route), $page - 1, htmlentities($query)) ?>">
+						<span aria-hidden="true">&larr;</span> Previous</a>
+					</li>
+				<?php } ?>
+
+				<?php if ($videos->hasMorePages()) { ?>
+					<li class="next">
+						<a href="<?php echo sprintf('%s?page=%d&q=%s', $this->url($this->route), $page + 1, htmlentities($query)) ?>">Next <span aria-hidden="true">&rarr;</span></a>
+					</li>
+				<?php } else { ?>
+					<li class="next disabled"><a href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
+				<?php } ?>
+			</ul>
+		</nav>
+	</div>
+</div>
+<?php }; ?>

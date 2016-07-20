@@ -1,0 +1,5 @@
+<div class="container">
+	<iframe frameborder="0" width="800" height="600" src="<?php echo sprintf('//www.dailymotion.com/embed/video/%s', $video->getSourceId()); ?>" allowfullscreen></iframe>
+	<h1><?php echo $video->getTitle(); ?></h1>
+	<p><?php echo strip_tags($video->getDescription()); ?></p>
+</div>
