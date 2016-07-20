@@ -58,4 +58,12 @@ abstract class AbstractEntity
     {
         return $this->$name;
     }
+
+    /**
+     *
+     * @return void
+     */
+    final public function __set($property, $value)
+    {
+    }
 }
