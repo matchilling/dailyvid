@@ -54,7 +54,7 @@ abstract class AbstractEntity
      * @param  string $name
      * @return mixed
      */
-    public function __get($name)
+    final public function __get($name)
     {
         return $this->$name;
     }
