@@ -8,9 +8,9 @@ This is a skeleton application using the Zend Framework MVC layer and module sys
 // Start a local webserver
 $ composer serve
 
-Listening on http://0.0.0.0:8080
-Document root is /public
-Press Ctrl-C to quit.
+// Listening on http://0.0.0.0:8080
+// Document root is /public
+// Press Ctrl-C to quit.
 ```
 
 ## Deployment
